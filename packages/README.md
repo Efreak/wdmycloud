@@ -7,6 +7,7 @@ Working for me--`dpkg -i $deb` works, and `$cmd` works. Not checked for good beh
 - mlocate - `updatedb && locate mlocate`. Installs a script to /etc/cron.daily/mlocate.
 - most - pager with *more* features than *less*
 - tree
+- cowsay
 
 Would not compile using build script
 - zsh - I hate you
@@ -32,16 +33,18 @@ Would not compile using build script
 
 Would not install :sob:
 - byobu - requires python-newt, tbd
+- dnsmasq - depends on libnetfilter-conntrack3
+- toilet - `echo G|toilet` for a swirly. enjoy
+  - need deps (libcaca0)
+- transmission-daemon
+  - depends on libcurl3-gnutls, libminiupnpc5, libnatpmp1
 
 Unchecked debs
 - nano - same version as built-in
-- dnsmasq - will test later
 - make - no compilers...
-- toilet - `echo G|toilet` for a swirly. enjoy.
 - uml-utilities - I have vague ideas of getting this working, not sure if I'll ever do so
 
 Other notes
 
-1.  Multiple packages, inluding coreinfo hang at "checking whether printf survives out-of-memory conditions...". I can't find any information on this online. If you kill the process (open htop, hit t for tree view, select the last child and hit k), it results in this check returning 'no' and continues building. Hopefully this doesn't have any evil effects.
+1. Multiple packages, inluding coreinfo hang at "checking whether printf survives out-of-memory conditions...". I can't find any information on this online. If you kill the process (open htop, hit t for tree view, select the last child and hit k), it results in this check returning 'no' and continues building. Hopefully this doesn't have any evil effects.
 2. The issue with schroot (`GC Warning: Out of Memory!  Returning NIL!` spam) occurs with multiple different packages. Maybe due to the limited memory of virtual system? Or limited ram of VPS, but I have 1.5gb swap...
-
