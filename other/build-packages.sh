@@ -29,15 +29,15 @@ build_dir="build"
 binutils_tar="binutils/binutils-armhf-64k.tar.gz"
 
 case "$suite" in
-    "wheezy" )
-	    bootstrap="bootstrap/wheezy-bootstrap_1.24.14_armhf.tar.gz"
-	    ;;
-    "jessie" )
-	    bootstrap="bootstrap/jessie-bootstrap_5.14.14_armhf.tar.gz"
-	    ;;
+	"wheezy" )
+		bootstrap="bootstrap/wheezy-bootstrap_1.24.14_armhf.tar.gz"
+		;;
+	"jessie" )
+		bootstrap="bootstrap/jessie-bootstrap_5.14.14_armhf.tar.gz"
+		;;
 	* ) 
-        usage
-        ;;
+		usage
+		;;
 esac
 
 ./setup.sh $bootstrap $build_dir
