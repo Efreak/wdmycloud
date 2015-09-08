@@ -34,6 +34,7 @@ Would not compile using build script
 - bcrypt - Unable to find a source package for bcrypt
 - rtorrent - GC warning again
 - coreutils - GC warning. if coreutils and busybox won't compile for a given platform, how do you set up a minimal system for it?
+- qbittorrent-nox - `/usr/include/stdio.h:35:0: internal compiler error: Segmentation fault`
 
 I'm not *quite* sure that all of the following actually tried to build; for example there shouldn't have been any problems with a keyring...All of these were in my old build script (I'm switching to the build- packages script), and it built several packages that came after them.
 - apt - is this even the correct package name? I've never had to install a package manager before, everything comes with apt-get, aptitude, and synaptic...
@@ -43,7 +44,6 @@ I'm not *quite* sure that all of the following actually tried to build; for exam
 - gnupg
 - gpgv
 - perl
-- qbittorrent-nox - boo
 - rhash
 - socat
 - ubuntu-cloud-keyring - why not? This should be multiplatform, shouldn't it?
