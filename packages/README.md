@@ -23,13 +23,11 @@ Would not compile using build script
 - aria2 - `A2STR.cc:65:1: internal compiler error: Segmentation fault`
 - busybox - somewhat annoying
 - openjdk-7-jre-headless - same error as schroot
-  - only really needed for bubbleupnp
-    - but I *really* want bubbleupnp--transcoding is good if I can get it, but I really like the android app.
-  - will try a different jre. Options?
-    - [jrecreate](https://docs.oracle.com/javase/8/embedded/develop-apps-platforms/jrecreate.htm)
-    - hotspot (hotspot zero should work if nothing else does)
-    - jamvm
+  - only really needed for bubbleupnp, but I *really* want bubbleupnp--transcoding is good if I can get it, but I really like the android app.
+  - will try a different jre. Options? [jrecreate](https://docs.oracle.com/javase/8/embedded/develop-apps-platforms/jrecreate.htm), jamvm, hotspot (hotspot zero should work if nothing else does)
 - dchroot - tries to build schroot, see above
+- proot
+- fakeroot-ng - but fakeroot builds? odd.
 
 Would not install :sob:
 - byobu - requires python-newt, tbd
@@ -42,6 +40,7 @@ Unchecked debs
 - uml-utilities - I have vague ideas of getting this working, not sure if I'll ever do so
 
 Other notes
+
 1.  Multiple packages, inluding coreinfo hang at "checking whether printf survives out-of-memory conditions...". I can't find any information on this online. If you kill the process (open htop, hit t for tree view, select the last child and hit k), it results in this check returning 'no' and continues building. Hopefully this doesn't have any evil effects.
 2. The issue with schroot (`GC Warning: Out of Memory!  Returning NIL!` spam) occurs with multiple different packages. Maybe due to the limited memory of virtual system? Or limited ram of VPS, but I have 1.5gb swap...
 
