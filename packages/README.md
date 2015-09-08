@@ -14,7 +14,7 @@ Would not compile using build script
 - git - I really hate you
 - g++ - I really, REALLY hate you.
 - schroot - `GC Warning: Out of Memory!  Returning NIL!` spams console
-- php-fpm
+- php-fpm - why did I add this? I only use this with nginx...
 - ffmpeg - :cry:
 - libavtools :sob:
 - rootstrap
@@ -31,21 +31,20 @@ Would not compile using build script
 - fakechroot
 - fakeroot-ng - but fakeroot builds? odd.
 - fish
+- bcrypt - Unable to find a source package for bcrypt
+- rtorrent - GC warning again
+- coreutils - GC warning. if coreutils and busybox won't compile for a given platform, how do you set up a minimal system for it?
 
 I'm not *quite* sure that all of the following actually tried to build; for example there shouldn't have been any problems with a keyring...All of these were in my old build script (I'm switching to the build- packages script), and it built several packages that came after them.
 - apt - is this even the correct package name? I've never had to install a package manager before, everything comes with apt-get, aptitude, and synaptic...
-- bcrypt
-- coreutils - if coreutils and busybox won't compile for a given platform, how do you set up a minimal system for it?
 - ctorrent
 - dialog
 - elinks
 - gnupg
 - gpgv
 - perl
-- php-fpm - why did I add this? I only use this with nginx...
 - qbittorrent-nox - boo
 - rhash
-- rtorrent - boo again
 - socat
 - ubuntu-cloud-keyring - why not? This should be multiplatform, shouldn't it?
 - vde2 - was hoping to play with UML. Guess not.
