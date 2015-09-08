@@ -21,11 +21,13 @@ Would not compile using build script
 - lolcat
 - figlet
 - aria2 (A2STR.cc:65:1: internal compiler error: Segmentation fault)
+- busybox
+- openjdk-7-jre-headless
 
 Would not install
 - byobu (requires python-newt, tbd)
 
-Unchecked
+Unchecked debs
 - nano (same version as built-in)
 - dnsmasq (will test later)
 - dos2unix
