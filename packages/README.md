@@ -28,8 +28,36 @@ Would not compile using build script
   - will try a different jre. Options? [jrecreate](https://docs.oracle.com/javase/8/embedded/develop-apps-platforms/jrecreate.htm), jamvm, hotspot (hotspot zero should work if nothing else does)
 - dchroot - tries to build schroot, see above
 - proot
+- fakechroot
 - fakeroot-ng - but fakeroot builds? odd.
 - fish
+
+I'm not *quite* sure that all of the following actually tried to build; for example there shouldn't have been any problems with a keyring...All of these were in my old build script (I'm switching to the build- packages script), and it built several packages that came after them.
+- apt - is this even the correct package name? I've never had to install a package manager before, everything comes with apt-get, aptitude, and synaptic...
+- bcrypt
+- coreutils - if coreutils and busybox won't compile for a given platform, how do you set up a minimal system for it?
+- ctorrent
+- dialog
+- elinks
+- gnupg
+- gpgv
+- perl
+- php-fpm - why did I add this? I only use this with nginx...
+- qbittorrent-nox - boo
+- rhash
+- rtorrent - boo again
+- socat
+- ubuntu-cloud-keyring - why not? This should be multiplatform, shouldn't it?
+- vde2 - was hoping to play with UML. Guess not.
+- vlc-nox
+- w3m
+- x264 - I'm quite sure I added this because I plan on converting blurays on my NAS.
+- xbmc-addons-dev
+- xbmc - not that I expect this or vlc to actually run. Not sure why I added these.
+- plowshare4 - boo. Good for downloading stuff.
+- elinks - odd, links and links2 compiled. I don't like elinks anyways, tho, so idc.
+- lynx
+- libav-tools - I may have spelled it wrong? I thought it was libav-tool
 
 Would not install :sob:
 - byobu - requires python-newt, tbd
