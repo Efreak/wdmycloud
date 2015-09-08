@@ -28,6 +28,7 @@ Would not compile using build script
 - dchroot - tries to build schroot, see above
 - proot
 - fakeroot-ng - but fakeroot builds? odd.
+- fish
 
 Would not install :sob:
 - byobu - requires python-newt, tbd
