@@ -12,7 +12,7 @@ Would not compile using build script
 - zsh
 - git
 - g++
-- schroot
+- schroot - `GC Warning: Out of Memory!  Returning NIL!` spams console - this error occurs on many unbuildable packages. Maybe due to the limited memory of virtual system? Or limited ram of VPS, but I have 1.5gb swap...
 - php-fpm
 - ffmpeg
 - libavtools
@@ -20,18 +20,19 @@ Would not compile using build script
 - git-extras
 - lolcat
 - figlet
-- aria2 (A2STR.cc:65:1: internal compiler error: Segmentation fault)
+- aria2 - `A2STR.cc:65:1: internal compiler error: Segmentation fault`
 - busybox
-- openjdk-7-jre-headless
+- openjdk-7-jre-headless - same error as schroot
+- dchroot - tries to build schroot, see above
 
 Would not install
-- byobu (requires python-newt, tbd)
+- byobu - requires python-newt, tbd
 
 Unchecked debs
-- nano (same version as built-in)
-- dnsmasq (will test later)
+- nano - same version as built-in
+- dnsmasq - will test later
 - dos2unix
-- make (no compilers...)
-- toilet (`echo G|toilet` for a swirly)
+- make - no compilers...
+- toilet - `echo G|toilet` for a swirly
 - ttyrec
-- uml-utilities (I have vague ideas of getting this working, not sure if I'll ever do so)
+- uml-utilities - I have vague ideas of getting this working, not sure if I'll ever do so
