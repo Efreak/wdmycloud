@@ -9,7 +9,7 @@
 
 usage() 
 {
-	echo "Usage: build-armhf-package.sh <--pagesize=64k or 4k> <package_name> <suite>"
+	echo "Usage: build-armhf-package.sh <--pagesize=64k or 4k> <suite> <package_name>"
 	exit 1
 }
 
@@ -23,8 +23,8 @@ elif [ "$1" != "--pagesize=4k" ]; then
 	usage
 fi
 
-export package_name=$2
-suite=$3
+export package_name=$3
+suite=$2
 build_dir="build"
 binutils_tar="binutils/binutils-armhf-64k.tar.gz"
 
