@@ -9,30 +9,39 @@ Working for me--`dpkg -i $deb` works, and `$cmd` works. Not checked for good beh
 - tree
 
 Would not compile using build script
-- zsh
-- git
-- g++
-- schroot - `GC Warning: Out of Memory!  Returning NIL!` spams console - this error occurs on many unbuildable packages. Maybe due to the limited memory of virtual system? Or limited ram of VPS, but I have 1.5gb swap...
+- zsh - I hate you
+- git - I really hate you
+- g++ - I really, REALLY hate you.
+- schroot - `GC Warning: Out of Memory!  Returning NIL!` spams console
 - php-fpm
-- ffmpeg
-- libavtools
+- ffmpeg - :cry:
+- libavtools :sob:
 - rootstrap
 - git-extras
 - lolcat
-- figlet
+- figlet - toilet worked. Why not figlet?
 - aria2 - `A2STR.cc:65:1: internal compiler error: Segmentation fault`
-- busybox
+- busybox - somewhat annoying
 - openjdk-7-jre-headless - same error as schroot
+  - only really needed for bubbleupnp
+    - but I *really* want bubbleupnp--transcoding is good if I can get it, but I really like the android app.
+  - will try a different jre. Options?
+    - [jrecreate](https://docs.oracle.com/javase/8/embedded/develop-apps-platforms/jrecreate.htm)
+    - hotspot (hotspot zero should work if nothing else does)
+    - jamvm
 - dchroot - tries to build schroot, see above
 
-Would not install
+Would not install :sob:
 - byobu - requires python-newt, tbd
 
 Unchecked debs
 - nano - same version as built-in
 - dnsmasq - will test later
-- dos2unix
 - make - no compilers...
-- toilet - `echo G|toilet` for a swirly
-- ttyrec
+- toilet - `echo G|toilet` for a swirly. enjoy.
 - uml-utilities - I have vague ideas of getting this working, not sure if I'll ever do so
+
+Other notes
+1.  Multiple packages, inluding coreinfo hang at "checking whether printf survives out-of-memory conditions...". I can't find any information on this online. If you kill the process (open htop, hit t for tree view, select the last child and hit k), it results in this check returning 'no' and continues building. Hopefully this doesn't have any evil effects.
+2. The issue with schroot (`GC Warning: Out of Memory!  Returning NIL!` spam) occurs with multiple different packages. Maybe due to the limited memory of virtual system? Or limited ram of VPS, but I have 1.5gb swap...
+
