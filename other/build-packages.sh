@@ -6,7 +6,6 @@
 # This script is intended to run on a x86 PC, with either 64-bit Ubuntu or Debian installed.
 #
 
-
 usage() 
 {
 	echo "Usage: build-armhf-package.sh <--pagesize=64k or 4k> <suite> <package_name> <package_name> <package_name> <...>"
@@ -39,6 +38,33 @@ case "$suite" in
 		usage
 		;;
 esac
+
+# deal with early exit (unmount crap and output results). leave the running script to run because laziness. Can kill manually.
+function clean_chroot_mounts() {
+	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	echo " OUTPUT debs can be found here:"
+	find $build_dir/root/ -maxdepth 1 -type f -name "*.deb"
+	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	echo
+	echo "Cleaning up chroot mounts"
+	sudo chroot $build_dir /bin/bash -c 'umount /proc && umount /dev/pts && umount /dev && exit'
+}
+function _sigint() {
+	echo " CTRL-C detected. Aborting."
+	clean_chroot_mounts
+	echo "Aborted due to ctrl+c"
+	echo "Aborted due to ctrl+c" >> build.log
+	exit
+}
+function _sigterm() {
+	echo "SIG received. Aborting."
+	clean_chroot_mounts
+	echo "Aborted due to signal"
+	echo "Aborted due to signal" >> build.log
+	exit
+}
+trap _sigint SIGINT SIGQUIT
+trap _sigterm SIGTERM SIGHUP
 
 ./setup.sh $bootstrap $build_dir
 
@@ -98,14 +124,15 @@ EOF
 done
 
 # clean up/unmount the chroot
-sudo chroot $build_dir /bin/bash <<EOF
-umount /proc
-umount /dev/pts
-umount /dev
-exit
-EOF
+clean_chroot_mounts
+#sudo chroot $build_dir /bin/bash <<EOF
+#umount /proc
+#umount /dev/pts
+#umount /dev
+#exit
+#EOF
 
 echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-echo " OUTPUT debs can be found here:        "
+echo " OUTPUT debs can be found here:"
 find $build_dir/root/ -maxdepth 1 -type f -name "*.deb"
 echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
